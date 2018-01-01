@@ -5,13 +5,13 @@ function List(props) {
   function renderItems () {
     return props.items.map((item, index) => {
       return (
-        <Item key={index} value={item}/>
+        <Item key={index} item={item} onToggle={() => { props.onToggle(index); }}/>
       );
     })
   }
 
   return (
-    <ul>{renderItems()}</ul>
+    <div>{renderItems()}</div>
   );
 }
 

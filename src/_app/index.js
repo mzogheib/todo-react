@@ -11,19 +11,31 @@ class App extends Component {
     };
   }
 
-  handleAdd(item) {
+  handleAdd(label) {
     const items = this.state.items.slice();
-    items.push(item);
+    items.push({
+      label: label,
+      done: false
+    });
+    this.setState({
+      items: items
+    });
+  }
+
+  handleToggle(index) {
+    const items = this.state.items.slice();
+    items[index].done = !items[index].done;
     this.setState({
       items: items
     });
   }
 
   render() {
+    const remainingItems = this.state.items.filter((item => !item.done ));
     return (
       <div>
-        <Header numItems={this.state.items.length}/>
-        <List items={this.state.items}/>
+        <Header numItems={remainingItems.length}/>
+        <List items={this.state.items} onToggle={this.handleToggle.bind(this)}/>
         <NewItem onAdd={this.handleAdd.bind(this)}/>
       </div>
     );

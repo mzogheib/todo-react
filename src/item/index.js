@@ -2,7 +2,10 @@ import React from 'react';
 
 function Item(props) {
   return (
-    <li key={props.index}>{props.value}</li>
+    <div>
+      <input type='checkbox' onChange={props.onToggle}/>
+      <span key={props.index}>{props.item.label}</span>
+    </div>
   );
 }
 
