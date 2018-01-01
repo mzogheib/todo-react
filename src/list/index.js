@@ -1,18 +1,17 @@
 import React from 'react';
+import Item from '../item'
 
 function List(props) {
   function renderItems () {
     return props.items.map((item, index) => {
       return (
-        <li key={index}>{item}</li>
+        <Item key={index} value={item}/>
       );
     })
   }
 
   return (
-    <ul>
-      {renderItems()}
-    </ul>
+    <ul>{renderItems()}</ul>
   );
 }
 
