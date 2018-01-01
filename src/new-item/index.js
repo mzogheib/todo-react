@@ -25,7 +25,7 @@ class NewItem extends Component {
     return (
       <form onSubmit={(e) => { e.preventDefault() }}>
         <input value={this.state.value} onChange={this.handleChange.bind(this)} autoFocus/>
-        <button onClick={this.handleAdd.bind(this)}>Add</button>
+        <button onClick={this.handleAdd.bind(this)} disabled={!this.state.value}>Add</button>
       </form>
     );
   }

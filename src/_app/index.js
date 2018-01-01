@@ -12,7 +12,11 @@ class App extends Component {
   }
 
   handleAdd(label) {
-    const items = this.state.items.slice();
+    if (!label) {
+      throw new Error('No label given.');
+    }
+
+        const items = this.state.items.slice();
     items.push({
       label: label,
       done: false
