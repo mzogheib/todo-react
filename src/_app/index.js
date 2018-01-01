@@ -40,12 +40,23 @@ class App extends Component {
     });
   }
 
+  handleDelete(index) {
+    const items = this.state.items.filter((item, idx) => idx !== index );
+    this.setState({
+      items: items
+    });
+  }
+
   render() {
     const remainingItems = this.state.items.filter((item => !item.done ));
     return (
       <div>
         <Header numItems={remainingItems.length}/>
-        <List items={this.state.items} onToggle={this.handleToggle.bind(this)}/>
+        <List
+          items={this.state.items}
+          onToggle={this.handleToggle.bind(this)}
+          onDelete={this.handleDelete.bind(this)}
+        />
         <NewItem onAdd={this.handleAdd.bind(this)}/>
       </div>
     );

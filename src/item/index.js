@@ -5,6 +5,7 @@ function Item(props) {
     <div>
       <input type='checkbox' checked={props.item.done} onChange={props.onToggle}/>
       <span key={props.index}>{props.item.label}</span>
+      <button onClick={props.onDelete}>X</button>
     </div>
   );
 }
