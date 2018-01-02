@@ -1,10 +1,14 @@
 import React from 'react';
 import './style.css';
+import Colors from '../_utils/colors';
 
 function Item(props) {
-  const colorScheme = props.index % 2 === 0 ? 'item__color-scheme' : 'item__color-scheme-alternate';
+  const style = {
+    backgroundColor: props.index % 2 === 0 ? Colors.two : Colors.three
+  }
+
   return (
-    <div className={'item__wrapper' + ' ' + colorScheme}>
+    <div className='item__wrapper' style={style}>
       <input type='checkbox' checked={props.item.done} onChange={props.onToggle} />
       <span className='item__label' key={props.index}>{props.item.label}</span>
       <button onClick={props.onDelete}>X</button>
