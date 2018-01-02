@@ -7,3 +7,11 @@
 .item__label {
   flex-grow: 1;
 }
+
+.item__color-scheme {
+  background-color: #FCE38A;
+}
+
+.item__color-scheme-alternate {
+  background-color: #EAFFD0;
+}

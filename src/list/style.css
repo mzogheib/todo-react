@@ -1,8 +1,6 @@
 .list__wrapper {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 .list__zero {
