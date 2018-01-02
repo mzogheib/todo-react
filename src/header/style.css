@@ -1,0 +1,9 @@
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.header__title {
+  flex-grow: 1;
+}

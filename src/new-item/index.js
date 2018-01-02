@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css';
 
 class NewItem extends Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class NewItem extends Component {
 
   render() {
     return (
-      <form onSubmit={(e) => { e.preventDefault() }}>
-        <input value={this.state.value} onChange={this.handleChange.bind(this)} autoFocus/>
-        <button onClick={this.handleAdd.bind(this)} disabled={!this.state.value}>Add</button>
+      <form className='new-item__wrapper' onSubmit={(e) => { e.preventDefault() }}>
+        <input className='new-item__input' value={this.state.value} onChange={this.handleChange.bind(this)} autoFocus />
+        <button className='new-item__button' onClick={this.handleAdd.bind(this)} disabled={!this.state.value}>Add</button>
       </form>
     );
   }

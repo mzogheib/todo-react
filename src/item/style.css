@@ -1,0 +1,9 @@
+.item__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.item__label {
+  flex-grow: 1;
+}

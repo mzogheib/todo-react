@@ -1,8 +1,9 @@
 import React from 'react';
+import './style.css';
 import Item from '../item'
 
 function List(props) {
-  function renderItems () {
+  function renderItems() {
     return props.items.map((item, index) => {
       return (
         <Item
@@ -12,11 +13,17 @@ function List(props) {
           onDelete={() => { props.onDelete(index); }}
         />
       );
-    })
+    });
+  }
+
+  function renderZero() {
+    return (
+      <div className='list__zero'>None</div>
+    );
   }
 
   return (
-    <div>{renderItems()}</div>
+    <div className='list__wrapper'>{props.items.length === 0 ? renderZero() : renderItems()}</div>
   );
 }
 

@@ -1,0 +1,12 @@
+.new-item__wrapper {
+  display: flex;
+  padding: 10px;
+}
+
+.new-item__input {
+  flex-grow: 1;
+}
+
+.new-item__button {
+  display: none;
+}

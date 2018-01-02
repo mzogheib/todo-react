@@ -1,0 +1,17 @@
+.app__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app__main {
+  flex-grow: 1;
+  max-width: 800px;
+  border-bottom: 1px solid black;
+}
+
+@media (min-width: 800px) {
+  .app__main {
+    border: 1px solid black;
+  }
+}
