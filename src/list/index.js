@@ -16,14 +16,8 @@ function List(props) {
     });
   }
 
-  function renderZero() {
-    return (
-      <div className='list__zero'>None</div>
-    );
-  }
-
   return (
-    <div className='list__wrapper'>{props.items.length === 0 ? renderZero() : renderItems()}</div>
+    <div className='list__wrapper'>{renderItems()}</div>
   );
 }
 

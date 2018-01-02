@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style.css';
-import Colors from '../_utils/colors';
 
 class NewItem extends Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class NewItem extends Component {
 
   render() {
     const style = {
-      backgroundColor: Colors.four
+      backgroundColor: this.props.backgroundColor
     }
 
     return (

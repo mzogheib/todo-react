@@ -1,12 +1,14 @@
 .new-item__wrapper {
   display: flex;
-  padding: 10px;
+  padding: 5px 33px;
 }
 
 .new-item__input {
   flex-grow: 1;
   outline: none;
   border: none;
+  padding: 0;
+  font: 400 16px sans-serif;
 }
 
 .new-item__button {

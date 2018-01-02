@@ -2,8 +2,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.list__zero {
-  text-align: center;
-  padding: 5px 0;
-}
