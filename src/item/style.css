@@ -28,3 +28,24 @@
   flex-grow: 1;
   padding: 0 0 0 5px;
 }
+
+.item__delete {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  content: ' \25CF';
+  font-size: 14px;
+  position: relative;
+}
+
+.item__delete:focus {
+  outline: none;
+}
+
+.item__delete:after {
+  content: ' \00D7';
+  font-size: 28px;
+  position: absolute;
+  top: -18px;
+  left: -1px;
+}
