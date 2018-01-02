@@ -3,13 +3,19 @@ import './style.css';
 import Colors from '../_utils/colors';
 
 function Item(props) {
-  const style = {
-    backgroundColor: props.index % 2 === 0 ? Colors.two : Colors.three
+  const itemStyle = {
+    backgroundColor: Colors.two
+  }
+
+  const checkboxStyle = {
+    backgroundColor: Colors.two,
+    borderColor: Colors.one,
+    color: Colors.one
   }
 
   return (
-    <div className='item__wrapper' style={style}>
-      <input type='checkbox' checked={props.item.done} onChange={props.onToggle} />
+    <div className='item__wrapper' style={itemStyle}>
+      <input className='item__checkbox' style={checkboxStyle} type='checkbox' checked={props.item.done} onChange={props.onToggle} />
       <span className='item__label' key={props.index}>{props.item.label}</span>
       <button onClick={props.onDelete}>X</button>
     </div>

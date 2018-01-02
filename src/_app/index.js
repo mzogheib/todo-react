@@ -51,7 +51,7 @@ class App extends Component {
 
     render() {
         const remainingItems = this.state.items.filter((item => !item.done));
-        const newItemBackgroundColor = this.state.items.length % 2 === 0 ? Colors.two : Colors.three;
+        const newItemBackgroundColor = Colors.two;
         return (
             <div className='app__wrapper'>
                 <div className='app__main'>
