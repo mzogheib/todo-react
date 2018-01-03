@@ -16,7 +16,15 @@ class NewItem extends Component {
     });
   }
 
-  handleAdd() {
+  handleKeyDown(e) {
+    const ENTER_KEY = 13;
+
+    if (e.keyCode !== ENTER_KEY) {
+      return;
+    }
+
+    e.preventDefault();
+
     this.props.onAdd(this.state.value);
     this.setState({
       value: ''
@@ -33,11 +41,17 @@ class NewItem extends Component {
     };
 
     return (
-      <form className='new-item__wrapper' style={style} onSubmit={(e) => { e.preventDefault() }}>
+      <div className='new-item__wrapper' style={style}>
         <span  style={addIconStyle} className='new-item__add-icon'></span>
-        <input className='new-item__input' style={style} value={this.state.value} onChange={this.handleChange.bind(this)} autoFocus />
-        <button className='new-item__button' onClick={this.handleAdd.bind(this)} disabled={!this.state.value}>Add</button>
-      </form>
+        <input
+          className='new-item__input'
+          style={style}
+          value={this.state.value}
+          onChange={this.handleChange.bind(this)}
+          onKeyDown={this.handleKeyDown.bind(this)}
+          autoFocus
+        />
+      </div>
     );
   }
 }

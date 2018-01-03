@@ -11,10 +11,6 @@
   font: 400 16px sans-serif;
 }
 
-.new-item__button {
-  display: none;
-}
-
 .new-item__add-icon {
   position: relative;
 }
