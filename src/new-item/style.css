@@ -14,3 +14,15 @@
 .new-item__button {
   display: none;
 }
+
+.new-item__add-icon {
+  position: relative;
+}
+
+.new-item__add-icon:after {
+  content: '\02D6';
+  font-size: 64px;
+  position: absolute;
+  top: -42px;
+  left: -28px;
+}
