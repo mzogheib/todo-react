@@ -20,7 +20,7 @@ function Item(props) {
   return (
     <div className='item__wrapper' style={itemStyle}>
       <input className='item__checkbox' style={checkboxStyle} type='checkbox' checked={props.item.done} onChange={props.onToggle} />
-      <span className='item__label' key={props.index}>{props.item.label}</span>
+      <span className='item__label'>{props.item.label}</span>
       <button className='item__delete' style={deleteStyle} onClick={props.onDelete}></button>
     </div>
   );
