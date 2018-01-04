@@ -36,13 +36,13 @@ class NewItem extends Component {
       backgroundColor: this.props.backgroundColor
     };
 
-    const addIconStyle = {
+    const iconStyle = {
       color: Colors.one
     };
 
     return (
       <div className='new-item__wrapper' style={style}>
-        <span  style={addIconStyle} className='new-item__add-icon'></span>
+        <i className='material-icons' style={iconStyle}>add_circle_outline</i>
         <input
           className='new-item__input'
           style={style}
