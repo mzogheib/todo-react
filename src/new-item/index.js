@@ -33,7 +33,7 @@ class NewItem extends Component {
 
   render() {
     const style = {
-      backgroundColor: this.props.backgroundColor
+      backgroundColor: Colors.two
     };
 
     const iconStyle = {

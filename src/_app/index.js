@@ -3,7 +3,6 @@ import './style.css';
 import Header from '../header';
 import List from '../list';
 import NewItem from '../new-item';
-import Colors from '../_utils/colors';
 
 class App extends Component {
     constructor(props) {
@@ -51,7 +50,6 @@ class App extends Component {
 
     render() {
         const remainingItems = this.state.items.filter((item => !item.done));
-        const newItemBackgroundColor = Colors.two;
         return (
             <div className='app__wrapper'>
                 <div className='app__main'>
@@ -61,7 +59,7 @@ class App extends Component {
                         onToggle={this.handleToggle.bind(this)}
                         onDelete={this.handleDelete.bind(this)}
                     />
-                    <NewItem backgroundColor={newItemBackgroundColor} onAdd={this.handleAdd.bind(this)} />
+                    <NewItem onAdd={this.handleAdd.bind(this)} />
                 </div>
             </div>
         );
