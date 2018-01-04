@@ -1,24 +1,12 @@
 .new-item__wrapper {
   display: flex;
-  padding: 9px 41px;
+  padding: 5px 10px;
 }
 
 .new-item__input {
   flex-grow: 1;
   outline: none;
   border: none;
-  padding: 0;
+  padding: 0 0 0 5px;
   font: 400 16px sans-serif;
-}
-
-.new-item__add-icon {
-  position: relative;
-}
-
-.new-item__add-icon:after {
-  content: '\02D6';
-  font-size: 64px;
-  position: absolute;
-  top: -42px;
-  left: -28px;
 }
