@@ -8,6 +8,7 @@ function List(props) {
       return (
         <Item
           key={index}
+          index={index}
           item={item}
           onToggle={() => { props.onToggle(index); }}
           onDelete={() => { props.onDelete(index); }}
