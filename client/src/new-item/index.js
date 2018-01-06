@@ -21,6 +21,8 @@ class NewItem extends Component {
 
     if (e.keyCode !== ENTER_KEY) {
       return;
+    } else if (!this.state.value) {
+      return;
     }
 
     e.preventDefault();
