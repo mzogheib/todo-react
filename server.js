@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const uuidv4 = require('uuid/v4');
 
 app.set('port', (process.env.PORT || 3001));
 
@@ -10,7 +11,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 let items = [];
-let id = 1;
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 app.post("/api", (req, res) => {
     const item = {
-        id: id++,
+        id: uuidv4(),
         label: req.body.label,
         done: req.body.done
     }
