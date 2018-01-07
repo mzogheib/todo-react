@@ -19,6 +19,16 @@ const update = item => {
     });
 };
 
+const getAll = () => {
+    return fetch('/api', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'GET'
+    })
+        .then(response => response.json());
+};
+
 const remove = id => {
     return fetch('/api', {
         headers: {
@@ -32,5 +42,6 @@ const remove = id => {
 export default {
     post,
     update,
+    getAll,
     delete: remove
 };
