@@ -51,16 +51,25 @@ class App extends Component {
             if (!id) {
                 throw new Error('No item id given.');
             } else {
-                const items = this.state.items.slice();
-                const item = items.find(i => i.id === id)
+                let item = this.state.items.find(i => i.id === id);
                 item.done = !item.done;
-                this.setState({
-                    items: items
-                });
+                this.updateItem(item)
+                    .then(() => {
+                        const items = this.state.items.map(i => {
+                            return i.id === id ? item : i;
+                        });
+                        this.setState({
+                            items: items
+                        });
+                    });
             }
         } catch (e) {
             console.debug(e.message);
         }
+    }
+
+    updateItem(item) {
+        return Api.update(item);
     }
 
     handleDelete(id) {
