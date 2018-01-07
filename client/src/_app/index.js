@@ -3,13 +3,13 @@ import './style.css';
 import Header from '../header';
 import List from '../list';
 import NewItem from '../new-item';
+import Api from '../_utils/api';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [],
-            id: 0
+            items: []
         };
     }
     // Throw the errors if no label or id but don't terminate the entire program.
@@ -20,21 +20,30 @@ class App extends Component {
             if (!label) {
                 throw new Error('No label given.');
             } else {
-                const items = this.state.items.slice();
-                const id = this.state.id + 1;
-                items.push({
-                    id: id,
-                    label: label,
-                    done: false
-                });
-                this.setState({
-                    items: items,
-                    id: id
-                });
+                this.addItem(label)
+                    .then(item => {
+                        const items = this.state.items.slice();
+                        items.push(item);
+                        this.setState({
+                            items: items
+                        });
+                    });
             }
         } catch (e) {
             console.debug(e.message);
         }
+    }
+
+    addItem(label) {
+        const item = {
+            label: label,
+            done: false
+        };
+
+        return Api.post(item)
+            .then(response => {
+                return { ...item, id: response.id }
+            });
     }
 
     handleToggle(id) {
@@ -59,14 +68,21 @@ class App extends Component {
             if (!id) {
                 throw new Error('No item id given.');
             } else {
-                const items = this.state.items.filter(item => item.id !== id);
-                this.setState({
-                    items: items
-                });
+                this.deleteItem(id)
+                    .then(() => {
+                        const items = this.state.items.filter(item => item.id !== id);
+                        this.setState({
+                            items: items
+                        });
+                    });
             }
         } catch (e) {
             console.debug(e.message);
         }
+    }
+
+    deleteItem(id) {
+        return Api.delete(id);
     }
 
     render() {
