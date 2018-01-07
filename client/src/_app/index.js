@@ -8,7 +8,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: []
+            items: [],
+            id: 0
         };
     }
     // Throw the errors if no label or index but don't terminate the entire program.
@@ -20,12 +21,15 @@ class App extends Component {
                 throw new Error('No label given.');
             } else {
                 const items = this.state.items.slice();
+                const id = this.state.id + 1;
                 items.push({
+                    id: id,
                     label: label,
                     done: false
                 });
                 this.setState({
-                    items: items
+                    items: items,
+                    id: id
                 });
             }
         } catch (e) {
