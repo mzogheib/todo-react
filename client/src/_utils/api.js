@@ -9,6 +9,16 @@ const post = item => {
         .then(response => response.json());
 };
 
+const update = item => {
+    return fetch('/api', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'PUT',
+        body: JSON.stringify(item)
+    });
+};
+
 const remove = id => {
     return fetch('/api', {
         headers: {
@@ -21,5 +31,6 @@ const remove = id => {
 
 export default {
     post,
+    update,
     delete: remove
 };
