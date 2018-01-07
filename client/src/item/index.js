@@ -11,8 +11,8 @@ function Item(props) {
     color: Colors.one
   };
 
-  const checkboxId = 'checkbox' + props.index;
-  const buttonId = 'button' + props.index;
+  const checkboxId = 'checkbox' + props.item.id;
+  const buttonId = 'button' + props.item.id;
 
   // The custom checkbox and button could probably be their own components
   return (
