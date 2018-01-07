@@ -27,6 +27,13 @@ app.post("/api", (req, res) => {
     res.status(200).json({ id: item.id });
 });
 
+app.put("/api", (req, res) => {
+    items = items.map(item => {
+        return item.id === req.body.id ? req.body : item;
+    });
+    res.status(204).json({});
+});
+
 app.delete("/api", (req, res) => {
     items = items.filter(item => item.id !== req.body.id);
     res.status(204).json({});
