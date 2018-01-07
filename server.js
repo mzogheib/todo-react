@@ -34,6 +34,10 @@ app.put("/api", (req, res) => {
     res.status(204).json({});
 });
 
+app.get("/api", (req, res) => {
+    res.status(200).json(items);
+});
+
 app.delete("/api", (req, res) => {
     items = items.filter(item => item.id !== req.body.id);
     res.status(204).json({});

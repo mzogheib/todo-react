@@ -12,6 +12,20 @@ class App extends Component {
             items: []
         };
     }
+
+    componentDidMount () {
+        this.getItems()
+            .then(items => {
+                this.setState({
+                    items: items
+                });
+            });
+    }
+
+    getItems() {
+        return Api.getAll();
+    }
+
     // Throw the errors if no label or id but don't terminate the entire program.
     // Just console log the error message.
 
