@@ -12,7 +12,7 @@ class App extends Component {
             id: 0
         };
     }
-    // Throw the errors if no label or index but don't terminate the entire program.
+    // Throw the errors if no label or id but don't terminate the entire program.
     // Just console log the error message.
 
     handleAdd(label) {
@@ -37,13 +37,14 @@ class App extends Component {
         }
     }
 
-    handleToggle(index) {
+    handleToggle(id) {
         try {
-            if (!index) {
-                throw new Error('No index given.');
+            if (!id) {
+                throw new Error('No item id given.');
             } else {
                 const items = this.state.items.slice();
-                items[index].done = !items[index].done;
+                const item = items.find(i => i.id === id)
+                item.done = !item.done;
                 this.setState({
                     items: items
                 });
@@ -53,12 +54,12 @@ class App extends Component {
         }
     }
 
-    handleDelete(index) {
+    handleDelete(id) {
         try {
-            if (!index) {
-                throw new Error('No index given.');
+            if (!id) {
+                throw new Error('No item id given.');
             } else {
-                const items = this.state.items.filter((item, idx) => idx !== index);
+                const items = this.state.items.filter(item => item.id !== id);
                 this.setState({
                     items: items
                 });

@@ -4,13 +4,13 @@ import Item from '../item'
 
 function List(props) {
   function renderItems() {
-    return props.items.map((item, index) => {
+    return props.items.map(item => {
       return (
         <Item
           key={item.id}
           item={item}
-          onToggle={() => { props.onToggle(index); }}
-          onDelete={() => { props.onDelete(index); }}
+          onToggle={() => { props.onToggle(item.id); }}
+          onDelete={() => { props.onDelete(item.id); }}
         />
       );
     });
