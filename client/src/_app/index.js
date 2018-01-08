@@ -15,11 +15,7 @@ class App extends Component {
 
     componentDidMount () {
         this.getItems()
-            .then(items => {
-                this.setState({
-                    items: items
-                });
-            });
+            .then(items => { this.setState({ items: items }); });
     }
 
     getItems() {
@@ -38,9 +34,7 @@ class App extends Component {
                     .then(item => {
                         const items = this.state.items.slice();
                         items.push(item);
-                        this.setState({
-                            items: items
-                        });
+                        this.setState({ items: items });
                     });
             }
         } catch (e) {
@@ -55,9 +49,7 @@ class App extends Component {
         };
 
         return Api.post(item)
-            .then(response => {
-                return { ...item, id: response.id }
-            });
+            .then(response => { return { ...item, id: response.id } });
     }
 
     handleToggle(id) {
@@ -69,12 +61,8 @@ class App extends Component {
                 item.done = !item.done;
                 this.updateItem(item)
                     .then(() => {
-                        const items = this.state.items.map(i => {
-                            return i.id === id ? item : i;
-                        });
-                        this.setState({
-                            items: items
-                        });
+                        const items = this.state.items.map(i => i.id === id ? item : i);
+                        this.setState({ items: items });
                     });
             }
         } catch (e) {
@@ -94,9 +82,7 @@ class App extends Component {
                 this.deleteItem(id)
                     .then(() => {
                         const items = this.state.items.filter(item => item.id !== id);
-                        this.setState({
-                            items: items
-                        });
+                        this.setState({ items: items });
                     });
             }
         } catch (e) {
@@ -109,7 +95,7 @@ class App extends Component {
     }
 
     render() {
-        const remainingItems = this.state.items.filter((item => !item.done));
+        const remainingItems = this.state.items.filter(item => !item.done);
         return (
             <div className='app__wrapper'>
                 <div className='app__main'>
